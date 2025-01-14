@@ -4,6 +4,14 @@
  */
 package prog.cipfpbatoi;
 
+import java.time.LocalDateTime;
+import java.time.ZoneId;
+import java.time.format.DateTimeFormatter;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.Formatter;
+import java.util.StringTokenizer;
+
 
 /**
  *
@@ -15,11 +23,25 @@ public class Data {
     private int mes;
     private int any;
 
+    // Obtenemos la fecha actual del sistema
+    private final LocalDateTime fecha = LocalDateTime.now();
+
+    // Inicializamos el objeto Calendar
+    private final Calendar calendar = Calendar.getInstance();
+
+
     /**
      *  Constructor por defecto
      *  Inicializa una fecha a la fecha del sistema
      */
     public Data() {
+
+        Date date = Date.from(fecha.atZone(ZoneId.systemDefault()).toInstant());
+        calendar.setTime(date);
+
+        this.dia = calendar.get(Calendar.DAY_OF_MONTH);
+        this.mes = calendar.get(Calendar.MONTH);
+        this.any = calendar.get(Calendar.YEAR);
     }
 
     /**
@@ -29,6 +51,9 @@ public class Data {
      * @param any
      */
     public Data(int dia, int mes, int any) {
+        this.dia = dia;
+        this.mes = mes;
+        this.any= any;
     }
 
     /**
@@ -38,6 +63,19 @@ public class Data {
      * @param fecha
      */
     public Data(String fecha) {
+        // Inicializamos el objeto StringTokenizer con el separador "/"
+        StringTokenizer st = new StringTokenizer(fecha, "/");
+
+        // Dividimos la cadena en tokens y asignamos valores a los atributos
+        if (st.hasMoreTokens()) {
+            this.dia = Integer.parseInt(st.nextToken());
+        }
+        if (st.hasMoreTokens()) {
+            this.mes = Integer.parseInt(st.nextToken());
+        }
+        if (st.hasMoreTokens()) {
+            this.any = Integer.parseInt(st.nextToken());
+        }
     }
 
     /**
@@ -47,7 +85,9 @@ public class Data {
      * @param any
      */
     public void set(int dia, int mes, int any) {
-        
+        this.dia = dia;
+        this.mes = mes;
+        this.any = any;
     }
 
     /**
@@ -57,7 +97,7 @@ public class Data {
      * @return
      */
     public Data copy() {
-        return null;
+        return new Data(this.dia,this.mes,this.any);
     }
 
     /**
@@ -88,6 +128,10 @@ public class Data {
      * Muestra por pantalla la fecha en formato español dd-mm-yyyy
      */
     public void mostrarEnFormatES()  {
+
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+
+        System.out.println(formatter.format());
         
     }
 
