@@ -34,7 +34,7 @@ public class Data {
         Calendar calendar = Calendar.getInstance();
 
         this.dia = calendar.get(Calendar.DAY_OF_MONTH);
-        this.mes = calendar.get(Calendar.MONTH);
+        this.mes = calendar.get(Calendar.MONTH) + 1 ;
         this.any = calendar.get(Calendar.YEAR);
     }
 
@@ -148,7 +148,49 @@ public class Data {
         int mes = this.mes;
         int any = this.any;
 
-        String mesTexto = String.valueOf(mes);
+        String mesTexto = "";
+
+        switch (mes) {
+            case 1:
+                mesTexto = "Gener";
+                break;
+            case 2:
+                mesTexto = "Febrer";
+                break;
+            case 3:
+                mesTexto = "Març";
+                break;
+            case 4:
+                mesTexto = "Abril";
+                break;
+            case 5:
+                mesTexto = "Maig";
+                break;
+            case 6:
+                mesTexto = "Juny";
+                break;
+            case 7:
+                mesTexto = "Juliol";
+                break;
+            case 8:
+                mesTexto = "Agost";
+                break;
+            case 9:
+                mesTexto = "Setembre";
+                break;
+            case 10:
+                mesTexto = "Octubre";
+                break;
+            case 11:
+                mesTexto = "Novembre";
+                break;
+            case 12:
+                mesTexto = "Desembre";
+                break;
+            default:
+                mesTexto = "Mes invàlid";
+                break;
+        }
 
         String fecha = String.format("%02d-%s-%04d", dia,mesTexto,any);
         System.out.println(fecha);
@@ -170,8 +212,30 @@ public class Data {
      * @return String
      */
     public String getDiaSetmana() {
+        int diesAny = getDiesTrascorregutsOrigen();
+        int diaSemana = diesAny % 7;
+        String nombreDia = "";
 
-        return null;
+        switch (diaSemana){
+            case 0 : nombreDia = "dilluns";
+            break;
+            case 1 : nombreDia = "dimarts";
+            break;
+            case 2: nombreDia = "dimercres";
+            break;
+            case 3 : nombreDia = "dijous";
+            break;
+            case 4 : nombreDia = "divendres";
+            break;
+            case 5 : nombreDia = "dissabte";
+            break;
+            case 6 : nombreDia = "diumenge";
+            break;
+            default:
+                System.out.println("Escriba un dia de la semana del 1 al 7");
+        }
+
+        return nombreDia;
     }
     
     /**
@@ -294,6 +358,12 @@ public class Data {
         for (int i = 1; i < this.any; i++) {
             contadorDias += getDiesAny(i);
         }
+
+        return contadorDias += getDiesTrascorregutsAny();
+    }
+
+    private int getDiesTrascorregutsAny(){
+        int contadorDias = 0;
 
         for (int j = 1; j < this.mes; j++) {
             contadorDias += getDiesMes(j, this.any);
