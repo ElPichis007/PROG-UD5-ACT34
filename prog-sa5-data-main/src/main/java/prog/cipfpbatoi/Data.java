@@ -4,7 +4,7 @@
  */
 package prog.cipfpbatoi;
 
-import java.time.LocalDateTime;
+
 import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
 import java.util.Calendar;
@@ -23,26 +23,22 @@ public class Data {
     private int mes;
     private int any;
 
-    // Obtenemos la fecha actual del sistema
-    private final LocalDateTime fecha = LocalDateTime.now();
 
     // Inicializamos el objeto Calendar
-    private final Calendar calendar = Calendar.getInstance();
-
 
     /**
      *  Constructor por defecto
      *  Inicializa una fecha a la fecha del sistema
      */
     public Data() {
-
-        Date date = Date.from(fecha.atZone(ZoneId.systemDefault()).toInstant());
-        calendar.setTime(date);
+        Calendar calendar = Calendar.getInstance();
 
         this.dia = calendar.get(Calendar.DAY_OF_MONTH);
         this.mes = calendar.get(Calendar.MONTH);
         this.any = calendar.get(Calendar.YEAR);
     }
+
+
 
     /**
      *  Inicializa la fecha a partir de los parámetros recibidos
@@ -63,10 +59,9 @@ public class Data {
      * @param fecha
      */
     public Data(String fecha) {
-        // Inicializamos el objeto StringTokenizer con el separador "/"
+
         StringTokenizer st = new StringTokenizer(fecha, "/");
 
-        // Dividimos la cadena en tokens y asignamos valores a los atributos
         if (st.hasMoreTokens()) {
             this.dia = Integer.parseInt(st.nextToken());
         }
@@ -129,16 +124,19 @@ public class Data {
      */
     public void mostrarEnFormatES()  {
 
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
 
-        System.out.println(formatter.format());
-        
+        // formato dd/mm/yyyy
+        String fecha = String.format("%02d/%02d/%04d", this.dia, this.mes, this.any);
+        System.out.println(fecha);
     }
 
     /**
      * Muestra por pantalla la fecha en formato inglés yyyy-mm-dd
      */
     public void mostrarEnFormatGB() {
+
+        String fecha = String.format("%04d-%02d-%02d", this.any, this.mes, this.dia);
+        System.out.println(fecha);
         
     }
 
@@ -146,7 +144,14 @@ public class Data {
      * Muestra por pantalla la fecha en formato texto dd-mmmmm-yyyy
      */
     public void mostrarEnFormatText() {
-        
+        int dia = this.dia;
+        int mes = this.mes;
+        int any = this.any;
+
+        String mesTexto = String.valueOf(mes);
+
+        String fecha = String.format("%02d-%s-%04d", dia,mesTexto,any);
+        System.out.println(fecha);
     }
 
     /**
@@ -157,7 +162,7 @@ public class Data {
      * @return boolean
      */
     public boolean isIgual(Data fecha) {
-        return false;
+        return this.dia == fecha.dia && this.mes == fecha.mes && this.any == fecha.any;
     }
 
     /**
@@ -165,6 +170,7 @@ public class Data {
      * @return String
      */
     public String getDiaSetmana() {
+
         return null;
     }
     
@@ -241,7 +247,7 @@ public class Data {
      * @return boolean
      */
     public static boolean isBisiesto(int any){
-        return false;
+        return any % 4 == 0 && any % 100 != 0 || any % 4 == 0 && any % 100 == 0 && any % 400 == 0;
     }
 
     /**
@@ -253,8 +259,17 @@ public class Data {
      *
      */
     public static int getDiesMes(int mes, int any) {
-
-        return -1;
+        switch (mes) {
+            case 1: case 3: case 5: case 7: case 8: case 10: case 12:
+                return 31; // Meses con 31 días
+            case 2:
+                return (isBisiesto(any)) ? 29 : 28; // Febrero: 29 días si es bisiesto, 28 si no
+            case 4: case 6: case 9: case 11:
+                return 30; // Meses con 30 días
+            default:
+                System.out.println("Slecciona un mes del 1 al 12");
+                return -1;
+        }
     }
 
     /**
@@ -264,6 +279,33 @@ public class Data {
      * @return int total dias any en curso
      */
     public static int getDiesAny(int any){
-        return -1;
+
+        if(isBisiesto(any)){
+            return 366;
+        } else {
+            return 365;
+        }
     }
+
+
+    private int getDiesTrascorregutsOrigen() {
+        int contadorDias = 0;
+
+        for (int i = 1; i < this.any; i++) {
+            contadorDias += getDiesAny(i);
+        }
+
+        for (int j = 1; j < this.mes; j++) {
+            contadorDias += getDiesMes(j, this.any);
+        }
+
+        contadorDias += this.dia - 1;
+
+        return contadorDias;
+    }
+
+
+
+
+
 }
