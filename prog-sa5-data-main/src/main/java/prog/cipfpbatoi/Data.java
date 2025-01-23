@@ -122,22 +122,14 @@ public class Data {
     /**
      * Muestra por pantalla la fecha en formato español dd-mm-yyyy
      */
-    public void mostrarEnFormatES()  {
-
-
-        // formato dd/mm/yyyy
+    public void mostrarEnFormatES() {
         String fecha = String.format("%02d/%02d/%04d", this.dia, this.mes, this.any);
         System.out.println(fecha);
     }
 
-    /**
-     * Muestra por pantalla la fecha en formato inglés yyyy-mm-dd
-     */
     public void mostrarEnFormatGB() {
-
         String fecha = String.format("%04d-%02d-%02d", this.any, this.mes, this.dia);
         System.out.println(fecha);
-        
     }
 
     /**
@@ -237,22 +229,35 @@ public class Data {
 
         return nombreDia;
     }
-    
+
+    /**
+     * Obtiene el número de la semana del año de la fecha actual
+     * @return
+     */
+    public int getNumeroSetmana() {
+        Data primerDiaAno = new Data(1, 1, any);
+        String diaSemanaPrimerDia = primerDiaAno.getDiaSetmana();
+
+        int diasDesdePrincipioAno = getDiesTrascorregutsAny();
+
+        int numeroSemana = (diasDesdePrincipioAno + 7 - primerDiaAno.getDia()) / 7;
+
+        if (diaSemanaPrimerDia.equals("diumenge") && numeroSemana == 0) {
+            numeroSemana = 1;
+        }
+
+        return numeroSemana;
+
+    }
+
     /**
      * Solo Festivo sábado o domingo
      * @return boolean
      */
     public boolean isFestiu() {
-        return false;
-    }
+        String dia = getDiaSetmana();
 
-    /**
-     * Obtiene el número de la semana del año de la fecha actual
-     * @return 
-     */
-    public int getNumeroSetmana() {
-        return -1;
-
+        return dia.equalsIgnoreCase("diumenge") || dia.equalsIgnoreCase("dissabte");
     }
 
     /**
@@ -261,9 +266,19 @@ public class Data {
      * @param numDias
      * @return
      */
-    public Data afegir(long numDias) {
+    public Data afegir(int numDias) {
+        Data novaData = this.copy();
+        novaData.dia += numDias;
+        while (novaData.dia > getDiesMes(novaData.mes, novaData.any)) {
+            novaData.dia -= getDiesMes(novaData.mes, novaData.any);
+            novaData.mes++;
+            if (novaData.mes > 12) {
+                novaData.mes = 1;
+                novaData.any++;
+            }
+        }
+        return novaData;
 
-        return null;
     }
 
     /**
@@ -271,8 +286,19 @@ public class Data {
      * @param numDias
      * @return 
      */
-    public Data restar(long numDias){
-        return null;
+    public Data restar(int numDias){
+        Data novaData = this.copy();
+        novaData.dia -= numDias;
+        while (novaData.dia <= 0) {
+            novaData.mes--;
+            if (novaData.mes <= 0) {
+                novaData.mes = 12;
+                novaData.any--;
+            }
+            novaData.dia += getDiesMes(novaData.mes, novaData.any);
+        }
+        return novaData;
+
     }
     
     /**
@@ -281,7 +307,11 @@ public class Data {
      */
 
     public boolean isCorrecta(){
-        return false;
+        if (mes < 1 || mes > 12) {
+            return false;
+        }
+        int diesMes = getDiesMes(mes, any);
+        return dia >= 1 && dia <= diesMes;
     }
 
     
@@ -291,7 +321,11 @@ public class Data {
      * @return 
      */
     public long getDiesDeDiferencia(Data data) {
-        return -1L;
+        int dias1 = data.getDiesTrascorregutsOrigen();
+        int dias2 = getDiesTrascorregutsOrigen();
+
+        return Math.abs(dias1 - dias2);
+
     }
     
     /**
@@ -300,7 +334,14 @@ public class Data {
      * @return 
      */
     public boolean esPosteriorA(Data data) {
-        return false;
+        int dias1 = data.getDiesTrascorregutsOrigen();
+        int dias2 = getDiesTrascorregutsOrigen();
+
+        if(dias2 > dias1){
+            return true;
+        } else {
+            return false;
+        }
     }
 
     /**
@@ -359,7 +400,7 @@ public class Data {
             contadorDias += getDiesAny(i);
         }
 
-        return contadorDias += getDiesTrascorregutsAny();
+        return contadorDias + getDiesTrascorregutsAny();
     }
 
     private int getDiesTrascorregutsAny(){

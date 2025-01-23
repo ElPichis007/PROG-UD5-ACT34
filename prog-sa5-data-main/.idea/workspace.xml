@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="658d42cb-8139-4687-8caf-a72df749409c" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/prog/cipfpbatoi/Data.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/prog/cipfpbatoi/Data.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 1
+}</component>
+  <component name="ProjectId" id="2rto1HFx1gymTHlm4rxTl7krb8C" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "JUnit.TestData.executor": "Run",
+    "JUnit.TestData.testAnyadir.executor": "Run",
+    "JUnit.TestData.testEsPosteriorA.executor": "Run",
+    "JUnit.TestData.testGetDiasAnyo.executor": "Run",
+    "JUnit.TestData.testGetDiasDeDiferencia.executor": "Run",
+    "JUnit.TestData.testGetNumeroSemana.executor": "Run",
+    "JUnit.TestData.testIsFestivo.executor": "Run",
+    "JUnit.TestData.testMostrarFechaDia1Mes3FormatoTexto.executor": "Run",
+    "JUnit.TestData.testRestar.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "main",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/maxil/Batoi/Programacion/PROG-UD4-CLASSWORK/PROG-UD5-ACT34/prog-sa5-data-main",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RunManager" selected="JUnit.TestData">
+    <configuration name="TestData" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="prog-sa5-Data" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="prog.cipfpbatoi.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="prog.cipfpbatoi" />
+      <option name="MAIN_CLASS_NAME" value="prog.cipfpbatoi.TestData" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TestData.testAnyadir" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="prog-sa5-Data" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="prog.cipfpbatoi.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="prog.cipfpbatoi" />
+      <option name="MAIN_CLASS_NAME" value="prog.cipfpbatoi.TestData" />
+      <option name="METHOD_NAME" value="testAnyadir" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TestData.testGetNumeroSemana" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="prog-sa5-Data" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="prog.cipfpbatoi.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="prog.cipfpbatoi" />
+      <option name="MAIN_CLASS_NAME" value="prog.cipfpbatoi.TestData" />
+      <option name="METHOD_NAME" value="testGetNumeroSemana" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TestData.testMostrarFechaDia1Mes3FormatoTexto" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="prog-sa5-Data" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="prog.cipfpbatoi.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="prog.cipfpbatoi" />
+      <option name="MAIN_CLASS_NAME" value="prog.cipfpbatoi.TestData" />
+      <option name="METHOD_NAME" value="testMostrarFechaDia1Mes3FormatoTexto" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TestData.testRestar" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="prog-sa5-Data" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="prog.cipfpbatoi.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="prog.cipfpbatoi" />
+      <option name="MAIN_CLASS_NAME" value="prog.cipfpbatoi.TestData" />
+      <option name="METHOD_NAME" value="testRestar" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.TestData" />
+        <item itemvalue="JUnit.TestData.testMostrarFechaDia1Mes3FormatoTexto" />
+        <item itemvalue="JUnit.TestData.testGetNumeroSemana" />
+        <item itemvalue="JUnit.TestData.testRestar" />
+        <item itemvalue="JUnit.TestData.testAnyadir" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9f38398b9061-39b83d9b5494-intellij.indexing.shared.core-IU-241.15989.150" />
+        <option value="bundled-js-predefined-1d06a55b98c1-91d5c284f522-JavaScript-IU-241.15989.150" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="658d42cb-8139-4687-8caf-a72df749409c" name="Changes" comment="" />
+      <created>1737387515314</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1737387515314</updated>
+      <workItem from="1737387516350" duration="1667000" />
+      <workItem from="1737635882424" duration="3421000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+  </component>
+</project>
